@@ -1,0 +1,6 @@
+#ifndef PAPER_H_INCLUDED
+#define PAPER_H_INCLUDED
+
+
+
+#endif // PAPER_H_INCLUDED
