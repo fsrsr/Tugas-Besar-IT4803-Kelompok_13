@@ -1,32 +1,34 @@
 #ifndef KEYWORD_H_INCLUDED
 #define KEYWORD_H_INCLUDED
 #include "string"
+#include <iostream>
+using namespace std;
 
 typedef string infotypeKey;
-typedef struct elmKey *adrKey;
+typedef struct elmKeyword *adrKey;
 
-struct elmP{
-    infotypeKey infoKey;
-    adrKey nextKey;
+struct elmKeyword{
+    infotypeKey info;
+    adrKey next;
 };
 
-struct ListP{
+struct ListKeyword{
     adrKey first;
 };
 
-createListKeyword_103032430027();
-createElmKeyword_();
+void createListKeyword(ListKeyword &K);
+adrKey allocateKeyword(infotypeKey x);
+bool isEmpty(ListKeyword K);
 
+void insertKeywordFirst(ListKeyword &K, adrKey p);
+void insertKeywordAfter(ListKeyword &K, adrKey prec, adrKey p);
+void insertKeywordLast(ListKeyword &K, adrKey p);
 
-insertKeywordFirst_103032430027();
-insertKeywordAfter_103032430027();
-insertKeywordLast_103032430027();
+void deleteKeywordFirst(ListKeyword &K, adrKey &p);
+void deleteKeywordAfter(ListKeyword &K, adrKey prec, adrKey &p);
+void deleteKeywordLast(ListKeyword &K, adrKey p);
 
-deleteKeywordFirst_();
-deleteKeywordAfter_();
-deleteKeywordLast_();
-
-findElmKey_103032430027();
-viewKey_();
+adrKey findElmKey(ListKeyword B, infotypeKey x);
+void viewKey(ListKeyword K);
 
 #endif // KEYWORD_H_INCLUDED
