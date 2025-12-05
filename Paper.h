@@ -15,25 +15,42 @@ struct Paper{
 struct elmPaper{
     infotypePaper infoPaper;
     adrPaper nextPaper;
-    elmR firstR;
+     //isinya null
 };
 
 struct ListPaper{
     adrPaper first;
+    adrPaper last;
 };
 
-createListPaper_1030323430027();
-createElmPaper_();
+void createListPaper_1030323430027(ListPaper &P);
+adrPaper createElmPaper_(infotypePaper x);
+bool isEmpty(ListPaper P);
 
-insertPaperFirst_103032430027();
-insertPaperAfter_103032430027();
-insertPaperLast_103032430027();
+void insertPaperFirst_103032430027();
+void insertPaperAfter_103032430027();
+void insertPaperLast_103032430027();
 
-deletePaperFirst_();
-deletePaperAfter_();
-deletePaperLast_();
+void deletePaperFirst_();
+void deletePaperAfter_();
+void deletePaperLast_();
 
-findElmPaper_103032430027();
-viewPaper_();
+void findElmPaper_103032430027();
+void viewPaper_();
+
+//searchPaperWithKeyword(ListPaper LP, adrKey k){
+    //adrPaper p = LP->first;
+    //while p != nullptr{
+       // adrR r = p->firstR;
+        //while (r != nullptr || notFound){
+            //if (r->infoRC == k){
+                //cout << p->info.judul;
+                //notFound = true;
+            //}
+            //r = r->nextR;
+        //}
+        //p = p->next
+    //}
+//}
 
 #endif // PAPER_H_INCLUDED

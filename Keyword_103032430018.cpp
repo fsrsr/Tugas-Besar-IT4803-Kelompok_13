@@ -1,6 +1,6 @@
 #include "Keyword.h"
-
 #include <iostream>
+//SLL
 using namespace std;
 
 void createListKeyword(ListKeyword &K) {
@@ -46,4 +46,9 @@ void deleteKeywordAfter(ListKeyword &K, adrKey prec, adrKey &p) {
         p -> next = nullptr;
     }
 }
-void deleteKeywordLast(ListKeyword &K, adrKey p);
+void deleteKeywordLast(ListKeyword &K, adrKey p){
+
+
+
+
+}
