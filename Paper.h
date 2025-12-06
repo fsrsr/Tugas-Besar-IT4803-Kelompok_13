@@ -1,10 +1,13 @@
 #ifndef PAPER_H_INCLUDED
 #define PAPER_H_INCLUDED
-#include "string"
+#include <string>
 #include "Relation.h"
+#include <iostream>
+using namespace std;
 
 typedef struct Paper infotypePaper;
 typedef struct elmPaper *adrPaper;
+
 struct Paper{
     string title;
     string journal;
@@ -15,6 +18,7 @@ struct Paper{
 struct elmPaper{
     infotypePaper infoPaper;
     adrPaper nextPaper;
+    adrPaper prevPaper;
      //isinya null
 };
 
@@ -23,20 +27,20 @@ struct ListPaper{
     adrPaper last;
 };
 
-void createListPaper_1030323430027(ListPaper &P);
-adrPaper createElmPaper_(infotypePaper x);
-bool isEmpty(ListPaper P);
+void createListPaper(ListPaper &P);
+adrPaper createElmPaper(infotypePaper x);
+bool isEmptyPaper(ListPaper P);
 
-void insertPaperFirst_103032430027();
-void insertPaperAfter_103032430027();
-void insertPaperLast_103032430027();
+void insertPaperFirst(ListPaper &P, adrPaper q);
+void insertPaperAfter(ListPaper &P, adrPaper prec, adrPaper q);
+void insertPaperLast(ListPaper &P, adrPaper q);
 
-void deletePaperFirst_();
-void deletePaperAfter_();
-void deletePaperLast_();
+void deletePaperFirst(ListPaper &P, adrPaper &q);
+void deletePaperAfter(ListPaper &P, adrPaper prec, adrPaper &q);
+void deletePaperLast(ListPaper &P, adrPaper &q);
 
-void findElmPaper_103032430027();
-void viewPaper_();
+void findElmPaper(ListPaper P, infotypePaper x);
+void showPaper(ListPaper P);
 
 //searchPaperWithKeyword(ListPaper LP, adrKey k){
     //adrPaper p = LP->first;
