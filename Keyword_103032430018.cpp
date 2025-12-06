@@ -46,9 +46,32 @@ void deleteKeywordAfter(ListKeyword &K, adrKey prec, adrKey &p) {
         p -> next = nullptr;
     }
 }
-void deleteKeywordLast(ListKeyword &K, adrKey p){
 
+void deleteKeywordLast(ListKeyword &K, adrKey p) {
+    adrkey q;
 
+    if (isEmpty(K)) {
+        p = nullptr;
+        cout << "List Kosong";
+    } else if (K.first -> next = nullptr) {
+        p = K.first;
+        K.first = nullptr;
+    } else {
+        q = K.first;
+        while (q -> next -> next != nullptr) {
+            q = q -> next;
+        }
+        p = q -> next;
+        q -> next = nullptr;
+    }
+}
 
+void showKey(ListKeyword K) {
+    adrKey p;
 
+    p = K.first;
+    while (p != nullptr) {
+        cout << p -> infotypeKey;
+        p = p -> next;
+    }
 }
