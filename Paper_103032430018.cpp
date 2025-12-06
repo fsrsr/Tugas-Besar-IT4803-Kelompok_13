@@ -3,63 +3,53 @@
 #include <iostream>
 using namespace std;
 
-void deletePaperFirst(ListPaper &P, adrPaper &q) {
-    if (isEmptyPaper(P)) {
-        q = nullptr;
-        cout << "List kosong";
-    } else if (P.first == P.last) {
-        q = P.first;
-        P.first = nullptr;
-        P.last = nullptr;
-    } else {
-        q = P.first;
-        P.first = q -> next;
-        q -> next = nullptr;
-        P.first -> prev = nullptr;
+void createListPaper_1030323430027(ListPaper &P){
+    P.first = nullptr;
+    P.last = nullptr;
+}
+
+adrPaper createElmPaper_(infotypePaper x){
+    adrPaper p;
+
+    p = new elmPaper;
+    p->firstR = nullptr;
+    p->infoPaper =
+    p->nextPaper =
+
+
+}
+
+bool isEmpty(ListPaper P);
+
+/*
+void insertKeywordFirst(ListKeyword &K, adrKey p){
+    if(isEmpty(K)){
+        K.first = p;
+    }else{
+        p->next = ListKeyword.first
+        K.first = p;
     }
 }
 
-void deletePaperAfter(ListPaper &P, adrPaper prec, adrPaper &q) {
-    if (isEmptyPaper(P)) {
-        q = nullptr;
-        cout << "List kosong";
-    } else if (P.first == P.last) {
-        q = P.first;
-        P.first = nullptr;
-        P.last = nullptr;
-    } else {
-        q = prec -> next;
-        prec -> next = q -> next;
-        q -> next -> prev = prec;
-        q -> next = nullptr;
-        q -> prev = nullptr;
+void insertKeywordAfter(ListKeyword &K, adrKey prec, adrKey p){
+    if(prec == nullptr){
+        cout << "Prec Tidak Ditemukan!"
+    }else{
+        p->next = prec->next;
+        prect->next = p;
     }
 }
 
-void deletePaperLast(ListPaper &P, adrPaper &q) {
-    if (isEmptyPaper(P)) {
-        q = nullptr;
-        cout << "List kosong";
-    } else if (P.first == P.last) {
-        q = P.first;
-        P.first = nullptr;
-        P.last = nullptr;
-    } else {
-        q = P.last;
-        P.last = q -> prev;
-        q -> prev = nullptr;
-        P.last -> next = nullptr;
+void insertKeywordLast(ListKeyword &K, adrKey p){
+    adrKey Q;
+    Q = K.first
+    if(isEmpty(K)){
+        K.first = p;
+    }else {
+        while(Q->next != nullptr){
+            Q = Q->next;
+        }
+        Q->next = p;
     }
-}
-
-void showPaper(ListPaper P) {
-    adrPaper q;
-
-    q = P.first;
-    while (q != nullptr) {
-        cout << q -> infoPaper
-        q -> next;
-    }
-}
-
+} */
 

@@ -4,75 +4,62 @@ using namespace std;
 
 //DLL
 
-void createListPaper_1030323430027(ListPaper &P){
-    P.first = nullptr;
-    P.last = nullptr;
-}
-
-adrPaper createElmPaper_(infotypePaper x){
-    adrPaper p;
-
-    p = new elmPaper;
-    p->firstR = nullptr;
-    p->infoPaper =
-    p->nextPaper =
-
-
-}
-
-
-bool isEmpty(ListPaper P);
-
-void deletePaperFirst_();
-void deletePaperAfter_();
-void deletePaperLast_();
-
-void createListKeyword(ListKeyword &K) {
-    K.first = nullptr;
-}
-
-bool isEmpty(ListKeyword K) {
-    return (K.first == nullptr);
-}
-
-adrKey allocateKeyword(infotypeKey x) {
-    adrKey p;
-
-    p = new elmKeyword;
-    p -> info = x;
-    p -> next = nullptr;
-}
-
-void deleteKeywordFirst(ListKeyword &K, adrKey &p) {
-    if (isEmpty(K)) {
-        p = nullptr;
-        cout << "List Kosong";
-    } else if (K.first -> next == nullptr) {
-        p = K.first;
-        K.first = nullptr;
+void deletePaperFirst(ListPaper &P, adrPaper &q) {
+    if (isEmptyPaper(P)) {
+        q = nullptr;
+        cout << "List kosong";
+    } else if (P.first == P.last) {
+        q = P.first;
+        P.first = nullptr;
+        P.last = nullptr;
     } else {
-        p = K.first;
-        K.first = K.first -> next;
-        p -> next = nullptr;
+        q = P.first;
+        P.first = q -> next;
+        q -> next = nullptr;
+        P.first -> prev = nullptr;
     }
 }
 
-void deleteKeywordAfter(ListKeyword &K, adrKey prec, adrKey &p) {
-    if (isEmpty(K)) {
-        p = nullptr;
-        cout << "List Kosong";
-    } else if (K.first -> next = nullptr) {
-        p = K.first;
-        K.first = nullptr;
+void deletePaperAfter(ListPaper &P, adrPaper prec, adrPaper &q) {
+    if (isEmptyPaper(P)) {
+        q = nullptr;
+        cout << "List kosong";
+    } else if (P.first == P.last) {
+        q = P.first;
+        P.first = nullptr;
+        P.last = nullptr;
     } else {
-        p = prec -> next;
-        prec -> next = p -> next;
-        p -> next = nullptr;
+        q = prec -> next;
+        prec -> next = q -> next;
+        q -> next -> prev = prec;
+        q -> next = nullptr;
+        q -> prev = nullptr;
     }
 }
-void deleteKeywordLast(ListKeyword &K, adrKey p){
 
-
-
-
+void deletePaperLast(ListPaper &P, adrPaper &q) {
+    if (isEmptyPaper(P)) {
+        q = nullptr;
+        cout << "List kosong";
+    } else if (P.first == P.last) {
+        q = P.first;
+        P.first = nullptr;
+        P.last = nullptr;
+    } else {
+        q = P.last;
+        P.last = q -> prev;
+        q -> prev = nullptr;
+        P.last -> next = nullptr;
+    }
 }
+
+void showPaper(ListPaper P) {
+    adrPaper q;
+
+    q = P.first;
+    while (q != nullptr) {
+        cout << q -> infoPaper
+        q -> next;
+    }
+}
+

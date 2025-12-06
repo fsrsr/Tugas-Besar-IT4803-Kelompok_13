@@ -18,11 +18,11 @@ struct ListKeyword{
     adrKey first;
 };
 
+
+// 103032430027
 void createListKeyword(ListKeyword &K);
 adrKey allocateKeyword(infotypeKey x);
 bool isEmpty(ListKeyword K);
-
-// 103032430027
 void insertKeywordFirst(ListKeyword &K, adrKey p);
 void insertKeywordAfter(ListKeyword &K, adrKey prec, adrKey p);
 void insertKeywordLast(ListKeyword &K, adrKey p);

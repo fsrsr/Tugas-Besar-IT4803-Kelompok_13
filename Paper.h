@@ -27,20 +27,23 @@ struct ListPaper{
     adrPaper last;
 };
 
-void createListPaper(ListPaper &P);
-adrPaper createElmPaper(infotypePaper x);
-bool isEmptyPaper(ListPaper P);
-
-void insertPaperFirst(ListPaper &P, adrPaper q);
-void insertPaperAfter(ListPaper &P, adrPaper prec, adrPaper q);
-void insertPaperLast(ListPaper &P, adrPaper q);
-
+//103032430027
 void deletePaperFirst(ListPaper &P, adrPaper &q);
 void deletePaperAfter(ListPaper &P, adrPaper prec, adrPaper &q);
 void deletePaperLast(ListPaper &P, adrPaper &q);
-
-void findElmPaper(ListPaper P, infotypePaper x);
 void showPaper(ListPaper P);
+void showrPaperR();
+
+//103032430018
+void createListPaper(ListPaper &P);
+adrPaper createElmPaper(infotypePaper x);
+bool isEmptyPaper(ListPaper P);
+void insertPaperFirst(ListPaper &P, adrPaper q);
+void insertPaperAfter(ListPaper &P, adrPaper prec, adrPaper q);
+void insertPaperLast(ListPaper &P, adrPaper q);
+void findElmPaper(ListPaper P, infotypePaper x);
+void countPaperNotR();
+
 
 //searchPaperWithKeyword(ListPaper LP, adrKey k){
     //adrPaper p = LP->first;

@@ -75,3 +75,7 @@ void showKey(ListKeyword K) {
         p = p -> next;
     }
 }
+
+void findElmKey(){
+
+}
