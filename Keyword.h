@@ -1,17 +1,12 @@
 #ifndef KEYWORD_H_INCLUDED
 #define KEYWORD_H_INCLUDED
-#include "string"
+#include <string>
+#include "Relation.h"
 #include <iostream>
 using namespace std;
 
 typedef string infotypeKey;
 typedef struct elmKeyword *adrKey;
-typedef struct elmR *adrR;
-
-struct elmR{
-    adrR nextR;
-    adrKey infoRC;
-};
 
 struct elmKeyword{
     infotypeKey info;
@@ -31,22 +26,13 @@ bool isEmpty(ListKeyword K);
 void insertKeywordFirst(ListKeyword &K, adrKey p);
 void insertKeywordAfter(ListKeyword &K, adrKey prec, adrKey p);
 void insertKeywordLast(ListKeyword &K, adrKey p);
-void adrKey findElmKey(ListKeyword B, infotypeKey x);
-void deleteRFirst_();
-void deleteRAfter_();
-void deleteRLast_();
-void viewR_();
+void findElmKey(ListKeyword B, infotypeKey x);
 
 //103032430018
 void deleteKeywordFirst(ListKeyword &K, adrKey &p);
 void deleteKeywordAfter(ListKeyword &K, adrKey prec, adrKey &p);
-void deleteKeywordLast(ListKeyword &K, adrKey p);
-void viewKey(ListKeyword K);
-void insertRelation(adrkey  k, adrpaper p);
-void insertRFirst(adrPaper p, adrR relation);
-void insertRAfter();
-void insertRLast(adrPaper p, adrR relation);
-void findElmR();
+void deleteKeywordLast(ListKeyword &K, adrKey &p);
+void showKey(ListKeyword K);
 
 #endif // KEYWORD_H_INCLUDED
 
