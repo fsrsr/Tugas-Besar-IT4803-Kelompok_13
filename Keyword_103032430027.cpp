@@ -65,7 +65,7 @@ adrR findElmR(ListKeyword LK, adrPaper p){
     return nullptr;
 }
 
-void deleteRFirst(ListKeyword LK, adrR r, adrPaper p){ // belum fix
+void deleteRFirst(ListKeyword LK, adrR r){ // belum fix
     adrKey n;
     adrR m;
     n = LK.first;
@@ -74,10 +74,9 @@ void deleteRFirst(ListKeyword LK, adrR r, adrPaper p){ // belum fix
         while(m != nullptr){
             if(m == n->firstR){
                 n->firstR = nullptr;
-            }else if(m == n->firstR->nextR){
-                r = m;
-                m = r->nextR;
-                n->firstR->nextR = m;
+            }else {
+                r = m->nextR;
+                m->nextR = r->nextR;
                 r->nextR = nullptr;
             }
             m = m->nextR;
@@ -85,7 +84,7 @@ void deleteRFirst(ListKeyword LK, adrR r, adrPaper p){ // belum fix
         n = n->next
     }
 }
-void deleteRAfter(ListKeyword LK, adrR prec, adrR r, adrPaper p){
+void deleteRAfter(ListKeyword LK, adrR prec, adrR r){
     adrKey n;
     adrR m;
     n = LK.first;
@@ -106,7 +105,7 @@ void deleteRAfter(ListKeyword LK, adrR prec, adrR r, adrPaper p){
         }
     }
 }
-void deleteRLast(ListKeyword LK, adrR r, adrPaper p){
+void deleteRLast(ListKeyword LK, adrR r){
     adrKey n;
     adrR m;
     n = LK.first;

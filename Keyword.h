@@ -47,11 +47,11 @@ void deleteKeywordLast(ListKeyword &LK, adrKey &k);
 void showKey(ListKeyword LK);
 
 //103032430027 (Relasi)
-void deleteRFirst(ListKeyword LK, adrR r, adrPaper p);
-void deleteRAfter(ListKeyword LK, adrR r, adrPaper p);
-void deleteRLast(ListKeyword LK, adrR r, adrPaper p);
+void deleteRFirst(ListKeyword LK, adrR r);
+void deleteRAfter(ListKeyword LK, adrR r);
+void deleteRLast(ListKeyword LK, adrR r);
 void viewPaperbyKeyword(ListKeyword LK, infotypeKey k); // Membuat Show data Paper yang berelasi dengan Keyword tertentu
-int countRelationOfPaper(ListKeyword LK, infotypePaper info, ListPaper LP); //Membuat Count Relasi yang dimiliki oleh Paper tertentu
+int countRelationOfPaper(adrKey k); //Membuat Count Relasi yang dimiliki oleh Paper tertentu
 void editRelation(ListKeyword LK, ListPaper LP, adrPaper p, adrKey k, adrKey oldK); // Membuat Edit Relasi / mengganti Paper dari Keyword tertentu
 adrR findElmR(ListKeyword LK, adrPaper p);
 
@@ -59,10 +59,10 @@ adrR findElmR(ListKeyword LK, adrPaper p);
 void insertRFirst(ListKeyword LK, adrR r, adrPaper p);
 void insertRAfter(ListKeyword LK, adrR r, adrPaper p);
 void insertRLast(ListKeyword LK, adrR r, adrPaper p);
-void viewKeywordAndPaper(); // Membuat Show data Keyword beserta data Paper yang masing-masing Paper miliki
-int countRelationByKeyword(); // Membuat Count Relasi dari setiap element Keyword
+void viewKeywordAndPaper(ListKeyword LK, adrKey k, adrPaper p); // Membuat Show data Keyword beserta data Paper yang masing-masing Paper miliki
+int countRelationByKeyword(adrKey k); // Membuat Count Relasi dari setiap element Keyword
 int countPaperNoRelation(); // Membuat Count element Paper yang tidak memiliki Relasi
-void showAllKeywordAndPaper(); // Membuat Show all data di List Paper beserta data Paper yang berelasi dengannya
+void showAllKeywordAndPaper(ListKeyword LK, adrKey k, adrPaper p); // Membuat Show all data di List Paper beserta data Paper yang berelasi dengannya
 
 #endif // KEYWORD_H_INCLUDED
 

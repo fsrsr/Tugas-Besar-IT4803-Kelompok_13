@@ -76,12 +76,122 @@ void showKey(ListKeyword K) {
     }
 }
 
-adrR createElmR(elmKeyword info);
-void insertRFirst(ListKeyword LK, adrR r, adrPaper p);
-void insertRAfter(ListKeyword LK, adrR r, adrPaper p);
-void insertRLast(ListKeyword LK, adrR r, adrPaper p);
-void viewKeywordAndPaper(); // Membuat Show data Keyword beserta data Paper yang masing-masing Paper miliki
-int countRelationByKeyword(); // Membuat Count Relasi dari setiap element Keyword
-int countPaperNoRelation(); // Membuat Count element Paper yang tidak memiliki Relasi
-void showAllKeywordAndPaper(); // Membuat Show all data di List Paper beserta data Paper yang berelasi dengannya
+adrR createElmR(adrPaper p){
+    adrR n;
+    n = createElmR();
+    n->nextR = nullptr;
+    n->infoRP = p;
+    return n;
+}
+
+void insertRFirst(ListKeyword LK, adrR r, adrPaper p){
+    adrKey n;
+    adrR m;
+    n = LK.first;
+    while(n != nullptr){
+        m = n->firstR;
+        while(m != nullptr){
+                m->nextR = r;
+                m->infoRP = p;
+        }
+            m = m->nextR;
+    }
+        n = n->next;
+}
+
+void insertRAfter(ListKeyword LK, adrR prec, adrR r, adrPaper p;){
+    adrKey n;
+    adrR m;
+    n = LK.first;
+    while(n != nullptr){
+        prec = findElmR(LK, p);
+        m = prec->next;
+        while(m != nullptr){
+            m->nextR = r;
+            m->infoRP = p;
+        }
+        m = m->nextR;
+    }
+    n = n->next;
+}
+
+void insertRLast(ListKeyword LK, adrR r, adrPaper p){
+    adrKey n;
+    adrR m;
+    n = LK.first;
+    while(n != nullptr){
+        m = n->firstR;
+        while(m != nullptr){
+            while(m->nextR != nullptr){
+                m = m->nextR;
+            }
+            m->nextR = r;
+            m->infoRP = p;
+        }
+        m = m->nextR;
+    }
+    n = n->next;
+}
+
+void viewKeywordAndPaper(ListKeyword LK, adrKey k, adrPaper p){ // Membuat Show data Keyword beserta data Paper yang masing-masing Paper miliki
+    adrKey n;
+    adrR m;
+    n = LK.first;
+    while(n != nullptr){
+        m = n->firstR;
+        cout << "Paper dengan Keyword " << n->info << ":" << endl;
+        cout << endl;
+        cout << "============ Paper =============" << endl;
+        while(m != nullptr){
+            cout << "Judul    :" << m->infoRP->info.title << endl;
+            cout << "Jurnal   :" << m->infoRP->info.journal << endl;
+            cout << "Terbit   :" << m->infoRP->info.date << endl;
+            cout << "Kategori :" << m->infoRP->info.category << endl;
+        }
+        m = m->nextR;
+    }
+    n = n->next;
+}
+
+int countRelationByKeyword(adrKey k){ // Membuat Count Relasi dari setiap element Keyword
+    adrR m;
+    int z;
+
+    m = k->firstR;
+    while(n != nullptr){
+        if(m != nullptr){
+            z++;
+        }
+        n = n->next;
+    }
+    return z;
+}
+
+int countPaperNoRelation(){
+
+
+
+
+}
+
+ // Membuat Count element Paper yang tidak memiliki Relasi
+void showAllKeywordAndPaper(ListKeyword LK, adrKey k, adrPaper p){
+    adrKey n;
+    adrR m;
+    n = LK.first;
+    while(n != nullptr){
+        m = n->firstR;
+        cout << "Paper dengan Keyword " << n->info << ":" << endl;
+        cout << endl;
+        cout << "============ Paper =============" << endl;
+        while(m != nullptr){
+            cout << "Judul    :" << m->infoRP->info.title << endl;
+            cout << "Jurnal   :" << m->infoRP->info.journal << endl;
+            cout << "Terbit   :" << m->infoRP->info.date << endl;
+            cout << "Kategori :" << m->infoRP->info.category << endl;
+        }
+        m = m->nextR;
+    }
+    n = n->next;
+} // Membuat Show all data di List Paper beserta data Paper yang berelasi dengannya
 

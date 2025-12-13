@@ -62,7 +62,8 @@ void menuUser(){
                 cout << endl;
                 cout << "========= Tampil Semua Paper ===========" << endl;
 
-                //...
+                //... view all paper
+                //... kasih tau total nya ada berapa
 
                 cout << "|| 1. Kembali                         ||" << endl;
                 cout << "|| 2. Keluar                          ||" << endl;
@@ -88,7 +89,8 @@ void menuUser(){
                 cout << endl;
                 cout << "========== Tampil Semua Keyword yang ada ==========" << endl;
 
-               //...
+               //... viewAllKey
+               //... kasih total nya berapa
 
                 cout << "|| 1. Kembali                                    ||" << endl;
                 cout << "|| 2. Keluar                                     ||" << endl;
