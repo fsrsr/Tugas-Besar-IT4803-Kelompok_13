@@ -1,121 +1,73 @@
 #include "main.h"
-#include "Paper.h"
-#include "Keyword.h"
 
 void menuUser(){
     int option=-99;
-    int option1 = -99;
-    int option2 = -99;
-    int option3 = -99;
-
+    ListKeyword LK;
+    ListPaper LP;
+    adrKey k, oldK;
+    adrPaper p;
 
     while (option != 0) {
-            system("cls");
-            cout << "========= Menu Kumpulan Paper ===========" << endl;
-            cout << "|| 1. Cari Paper                       ||" << endl;
-            cout << "|| 2. Tampil Paper yang ada            ||" << endl;
-            cout << "|| 3. Tampil Keyword yang ada          ||" << endl;
-            cout << "|| 4. Keluar                           ||" << endl;
-            cout << "=========================================" << endl;
-            cout << "Choose your option : ";
-            cin >> option;
+        system("cls");
+        cout << "=================== Menu Studi Kasus =================== " << endl;
+        cout << "|| 1. Lihat paper dari keyword                         ||" << endl;
+        cout << "|| 2. Lihat semua keyword dengan setiap papernya       ||" << endl;
+        cout << "|| 3. Lihat semua paper dengan setiap keywordnya       ||" << endl;
+        cout << "|| 4. Lihat keyword dari paper                         ||" << endl;
+        cout << "|| 5. Hitung banyak paper dari setiap keyword          ||" << endl;
+        cout << "|| 6. Hitung banyak keyword dari paper tertentu        ||" << endl;
+        cout << "|| 7. Hitung banyak paper yang tidak memiliki keyword  ||" << endl;
+        cout << "|| 8. Ubah paper dari suatu keyword                    ||" << endl;
+        cout << "======================================================== " << endl;
+        cout << "Choose your option : ";
+        cin >> option;
 
         switch(option) {
            case 1  :
-                cout << "you choose option 1 ; Cari Paper" << endl;
-                cout << endl;
-                cout << "========= Cari Paper ===========" << endl;
-                cout << "|| 1. Masukkan Keyword        ||" << endl;
-                cout << "|| 2. Kembali                 ||" << endl;
-                cout << "|| 3. Keluar                  ||" << endl;
-                cout << "===============================" << endl;
-                cout << "Choose your option : ";
-                cin >> option1;
+              cout << "=== LIHAT PAPER ===" << endl;
+              cout << "Paper dengan keyword apa yang ingin dicari? ";
+              cin >> k;
+              viewPaperbyKeyword(LK, k);
 
-                while(option1 != 0){
-                    switch(option1){
-                        case 1 :
-                                cout << "you choose option 1 ; Masukkan Keyword" << endl;
-                                cout << endl;
-                                cout << "========= Masukkan Keyword ==========" << endl;
-                                cout << "|| Keyword :                       ||";
-                                cin >> option1;
-                                cout << "=====================================" << endl;
-
-                                //....
-
-                            break;
-
-                        case 2 :
-                                menuUser();
-                            break;
-
-                        case 3 :
-                                return;
-                            break;
-                    }
-                }
-
-
+              break;
            case 2  :
-                cout << "you choose option 2 ; Tampil Semua Paper yang ada" << endl;
-                cout << endl;
-                cout << "========= Tampil Semua Paper ===========" << endl;
-
-                //... view all paper
-                //... kasih tau total nya ada berapa
-
-                cout << "|| 1. Kembali                         ||" << endl;
-                cout << "|| 2. Keluar                          ||" << endl;
-                cout << "========================================" << endl;
-                cout << "Choose your option : ";
-                cin >> option2;
-
-
-                while(option2 != 0){
-                   switch(option2){
-                        case 1 :
-                               menuUser();
-                           break;
-
-                        case 2 :
-                               return;
-                           break;
+              cout << "=== LIHAT SEMUA KEYWORD DENGAN PAPER ===" << endl;
+              showAllKeywordAndPaper(LK, k, p);
 
               break;
-
            case 3  :
-                cout << "you choose option 3 ; Tampil Semua Keyword yang ada" << endl;
-                cout << endl;
-                cout << "========== Tampil Semua Keyword yang ada ==========" << endl;
-
-               //... viewAllKey
-               //... kasih total nya berapa
-
-                cout << "|| 1. Kembali                                    ||" << endl;
-                cout << "|| 2. Keluar                                     ||" << endl;
-                cout << "===================================================" << endl;
-                cout << "Choose your option : ";
-                cin >> option3;
-
-                while(option3 != 0){
-                   switch(option3){
-                        case 1 :
-                               menuUser();
-                            break;
-
-                        case 2 :
-                                return;
-                            break;
-
+              cout << "=== LIHAT SEMUA PAPER DENGAN KEYWORD ===" << endl;
+              showAllPaperAndKeyword(LK, LP);
 
               break;
+           case 4  :
+              cout << "=== LIHAT KEYWORD ===" << endl;
+              cout << "Keyword dengan paper apa yang ingin dicari? ";
+              cin >> p;
+              viewKeywordbyPaper(LK, k, p);
 
-           case 4 :
-                return;
+              break;
+           case 5  :
+              cout << "=== HITUNG BANYAK PAPER DI SETIAP KEYWORD ===" << endl;
+              countRelationOfKeyword(LK);
 
+              break;
+           case 6  :
+              cout << "=== HITUNG BANYAK KEYWORD DARI PAPER TERTENTU ===" << endl;
+              Cp = countRelationOfPaper(LK);
+              cout << Cp;
+
+              break;
+           case 7  :
+              cout << "=== HITUNG BANYAK PAPER TANPA KEYWORD ===" << endl;
+              countNoRelationPaper(LK);
+
+              break;
+           case 8  :
+              cout << "=== UBAH PAPER ===" << endl;
+              editRelation(LK, LP, p, k, oldK);
+
+              break;
         }
     }
 }
-
-
