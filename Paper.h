@@ -26,13 +26,13 @@ struct ListPaper{
     adrPaper last;
 };
 
-//103032430027
+//103032430027 point 5 & 11
 void deletePaperFirst(ListPaper &LP, adrPaper &p);
 void deletePaperAfter(ListPaper &LP, adrPaper prec, adrPaper &p);
 void deletePaperLast(ListPaper &LP, adrPaper &p);
 void showPaper(ListPaper LP);
 
-//103032430018
+//103032430018 point 2 & 8
 void createListPaper(ListPaper &LP);
 adrPaper createElmPaper(infotypePaper x);
 bool isEmptyPaper(ListPaper LP);
@@ -41,21 +41,5 @@ void insertPaperAfter(ListPaper &LP, adrPaper prec, adrPaper p);
 void insertPaperLast(ListPaper &LP, adrPaper p);
 adrPaper findElmPaper(ListPaper LP, infotypePaper x);
 
-
-
-//searchPaperWithKeyword(ListPaper LP, adrKey k){
-    //adrPaper p = LP->first;
-    //while p != nullptr{
-       // adrR r = p->firstR;
-        //while (r != nullptr || notFound){
-            //if (r->infoRC == k){
-                //cout << p->info.judul;
-                //notFound = true;
-            //}
-            //r = r->nextR;
-        //}
-        //p = p->next
-    //}
-//}
 
 #endif // PAPER_H_INCLUDED
