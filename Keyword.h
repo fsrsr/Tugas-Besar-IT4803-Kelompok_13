@@ -56,10 +56,9 @@ void showAllPaperAndKeyword(ListKeyword LK, ListPaper LP); // point 14
 //103032430018 (Relasi) point 3 & 9 & 13 & 15 & 17 & 18
 void insertRelation(ListKeyword LK, adrR r, adrPaper p); //insert last done
 void viewKeywordbyPaper(ListKeyword LK, adrKey k, adrPaper p); // point 15
-int countRelationOfPaper(ListKeyword LK); // point 17
+adrPaper countRelationOfPaper(ListKeyword LK); // point 17
 void showAllKeywordAndPaper(ListKeyword LK, adrKey k, adrPaper p); // point 13
 void countNoRelationPaper(ListKeyword LK) // point 18
-void findIsRelation() // point 9
 
 #endif // KEYWORD_H_INCLUDED
 

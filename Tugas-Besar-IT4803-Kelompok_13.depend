@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1764591139 source:c:\users\rend1\kuliah\smt 3\struktur data\praktikum\tubes uts\keyword_103032430027.cpp
+
+1764591166 source:c:\users\rend1\kuliah\smt 3\struktur data\praktikum\tubes uts\main.cpp
+	<iostream>
+
+1764591173 source:c:\users\rend1\kuliah\smt 3\struktur data\praktikum\tubes uts\main_admin.cpp
+
+1764591176 source:c:\users\rend1\kuliah\smt 3\struktur data\praktikum\tubes uts\main_user.cpp
+
+1764903169 source:c:\users\rend1\kuliah\smt 3\struktur data\praktikum\tubes uts\paper_103032430018.cpp
+
+1764591150 source:c:\users\rend1\kuliah\smt 3\struktur data\praktikum\tubes uts\paper_103032430027.cpp
+
+1764662696 source:c:\users\rend1\kuliah\smt 3\struktur data\praktikum\tubes uts\relation.cpp
+
+1764662706 source:c:\users\rend1\kuliah\smt 3\struktur data\praktikum\tubes uts\keyword_103032430018.cpp
+	"Keyword.h"
+	<iostream>
+
+1764662740 c:\users\rend1\kuliah\smt 3\struktur data\praktikum\tubes uts\keyword.h
+	"string"
+	<iostream>
+

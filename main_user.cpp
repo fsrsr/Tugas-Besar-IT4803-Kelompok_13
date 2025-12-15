@@ -1,4 +1,8 @@
 #include "main.h"
+#include "Paper.h"
+#include "Keyword.h"
+#include <iostream>
+using namespace std;
 
 void menuUser(){
     int option=-99;
@@ -43,7 +47,7 @@ void menuUser(){
            case 4  :
               cout << "=== LIHAT KEYWORD ===" << endl;
               cout << "Keyword dengan paper apa yang ingin dicari? ";
-              cin >> p;
+              cin >> p->info.title;
               viewKeywordbyPaper(LK, k, p);
 
               break;

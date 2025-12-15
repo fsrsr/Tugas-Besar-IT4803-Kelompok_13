@@ -9,9 +9,8 @@ typedef struct elmPaper *adrPaper;
 
 struct Paper{
     string title;
-    string journal;
     string author;
-    string date;
+    string year;
     string category;
 };
 

@@ -23,10 +23,10 @@ void insertKeywordAfter(ListKeyword &LK, adrKey prec, adrKey k){
 
 void insertKeywordLast(ListKeyword &LK, adrKey k){
     adrKey n;
-    n = LK.first
-    if(isEmpty(LK)){
+    n = LK.first;
+    if (isEmpty(LK)){
         LK.first = k;
-    }else {
+    } else {
         while(n->next != nullptr){
             n = n->next;
         }
@@ -60,7 +60,7 @@ adrR findElmR(ListKeyword LK, adrPaper p){
             }
             m = m->nextR;
         }
-        n = n->next
+        n = n->next;
     }
     return nullptr;
 }
@@ -95,14 +95,19 @@ void viewPaperbyKeyword(ListKeyword LK, infotypeKey k){// Membuat Show data Pape
     n = LK.first
     while(n!=nullptr){
         m = n->firstR;
+        cout << "Paper dengan Keyword " << k << " yaitu: " << endl;
+        cout << endl;
         while(m!= nullptr){
-            cout << m->infoRP->info.journal << ", " << m->infoRP->info.author << ", "<< m->infoRP->info.date << ", " << m->infoRP->info.category << endl;
+            if(n->info == k){
+                cout << m->infoRP->info.title
             }
             m = m->next;
         }
         n = n->next;
     }
+    cout << "ERROR: Paper Tidak Ditemukan" << endl;
 }
+
 
 void countRelationOfKeyword(ListKeyword LK){
     int hasil;
@@ -190,8 +195,6 @@ void showAllPaperAndKeyword(ListKeyword LK, ListPaper LP){
                 }
                 r = r->nextR;
             }
-
         }
     }
-
 }

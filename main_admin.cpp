@@ -1,6 +1,7 @@
 #include "main.h"
-#include "Relation.h"
 #include "Paper.h"
+#include <iostream>
+using namespace std;
 
 void menuAdmin(){
     int option=-99;

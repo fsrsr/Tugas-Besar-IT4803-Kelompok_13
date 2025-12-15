@@ -74,16 +74,16 @@ void deletePaperLast(ListPaper &LP, adrPaper &p){
     }
 }
 
-void findElmPaper(ListPaper LP, infotypePaper x){
+bool findElmPaper(ListPaper LP, infotypePaper x){
     adrPaper n;
     n = LP.first;
 
     while(n != nullptr){
         if(n->info.title == x.title || n->info.journal == x.journal || n->info.author == x.author || n->info.date == x.date || n->info.category == x.category){
-            return n;
+            return true;
         }
         n = n->next;
     }
-    return nullptr;
+    return false;
 }
 
