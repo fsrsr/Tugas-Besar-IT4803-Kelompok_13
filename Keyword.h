@@ -3,7 +3,7 @@
 #include "Paper.h"
 #include <string>
 #include <iostream>
-#include "Paper.h"
+
 using namespace std;
 
 typedef string infotypeKey;
@@ -31,7 +31,7 @@ adrKey createElmKeyword(infotypeKey x);
 bool isEmpty(ListKeyword LK);
 
 //create relasi
-adrKey createElmR(elmKeyword info);
+adrR createElmR(adrPaper p);
 
 
 // 103032430027 (Parent) point 1 & 7
@@ -47,7 +47,7 @@ void deleteKeywordLast(ListKeyword &LK, adrKey &k); // done
 void showKey(ListKeyword LK); // done
 
 //103032430027 (Relasi) point 6 & 12 & 14 & 16 & 19
-void deleteRelation(ListKeyword LK, adrR r);  // point 6 // done
+void deleteRelation(ListKeyword LK, adrR prec, adrR r);  // point 6 // done
 void viewPaperbyKeyword(ListKeyword LK, infotypeKey k); // point 12 // done
 void countRelationOfKeyword(ListKeyword LK); // point 16 // done
 void editRelation(ListKeyword LK, ListPaper LP, adrPaper p, adrKey k, adrKey oldK); // point 19 // done
@@ -55,10 +55,10 @@ void showAllPaperAndKeyword(ListKeyword LK, ListPaper LP); // point 14
 
 //103032430018 (Relasi) point 3 & 9 & 13 & 15 & 17 & 18
 void insertRelation(ListKeyword LK, adrR r, adrPaper p); //insert last done
-void viewKeywordbyPaper(ListKeyword LK, adrKey k, adrPaper p); // point 15
-adrPaper countRelationOfPaper(ListKeyword LK); // point 17
-void showAllKeywordAndPaper(ListKeyword LK, adrKey k, adrPaper p); // point 13
-void countNoRelationPaper(ListKeyword LK) // point 18
+void viewKeywordbyPaper(ListKeyword LK, ListPaper LP, infotypePaper p); // point 15
+int countRelationOfPaper(ListKeyword LK, ListPaper LP, infotypePaper p); // point 17
+void showAllKeywordAndPaper(ListKeyword LK, ListPaper LP); // point 13
+void countNoRelationPaper(ListKeyword LK, ListPaper LP) // point 18
 
 #endif // KEYWORD_H_INCLUDED
 

@@ -8,6 +8,7 @@ void menuUser(){
     int option=-99;
     ListKeyword LK;
     ListPaper LP;
+    infotypeKey K;
     adrKey k, oldK;
     adrPaper p;
 
@@ -31,12 +32,12 @@ void menuUser(){
               cout << "=== LIHAT PAPER ===" << endl;
               cout << "Paper dengan keyword apa yang ingin dicari? ";
               cin >> k;
-              viewPaperbyKeyword(LK, k);
+              viewPaperbyKeyword(LK, K);
 
               break;
            case 2  :
               cout << "=== LIHAT SEMUA KEYWORD DENGAN PAPER ===" << endl;
-              showAllKeywordAndPaper(LK, k, p);
+              showAllKeywordAndPaper(LK, k, p); //aneh
 
               break;
            case 3  :
@@ -48,7 +49,7 @@ void menuUser(){
               cout << "=== LIHAT KEYWORD ===" << endl;
               cout << "Keyword dengan paper apa yang ingin dicari? ";
               cin >> p->info.title;
-              viewKeywordbyPaper(LK, k, p);
+              viewKeywordbyPaper(LK, k, p); //aneh
 
               break;
            case 5  :
@@ -58,7 +59,7 @@ void menuUser(){
               break;
            case 6  :
               cout << "=== HITUNG BANYAK KEYWORD DARI PAPER TERTENTU ===" << endl;
-              Cp = countRelationOfPaper(LK);
+              Cp = countRelationOfPaper(LK); //aneh
               cout << Cp;
 
               break;

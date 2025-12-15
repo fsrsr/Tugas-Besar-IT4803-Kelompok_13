@@ -1,5 +1,6 @@
 #include "main.h"
 #include "Paper.h"
+#include "Keyword.h"
 #include <iostream>
 using namespace std;
 
@@ -31,7 +32,7 @@ void menuAdmin(){
 void menuParent(){
     int option=-99;
     infotypeKey keyword, key;
-    adrKey prec, p;
+    adrKey prec, p, fKey;
     ListKeyword LK;
 
     createListKeyword(LK);
@@ -93,14 +94,14 @@ void menuParent(){
               break;
            case 6:
               cout << "=== DELETE AFTER ===" << endl;
-              prec = findElmKey(LK, key)
+              prec = findElmKey(LK, key);
               deleteKeywordAfter(LK, prec, p);
 
               break;
            case 7:
               cout << "=== CARI KEYWORD ===" << endl;
               cout << "Masukkan keyword yang ingin dicari: ";
-              cin << key;
+              cin >> key;
               fKey = findElmKey(LK, key);
 
               if (fKey != nullptr) {
@@ -122,8 +123,8 @@ void menuParent(){
 void menuChild(){
     int option=-99;
     ListPaper LP;
-    infotypePaper paper, p;
-    adrPaper prec, p;
+    infotypePaper paper, P;
+    adrPaper prec, p, fPaper;
 
     createListPaper(LP);
 
@@ -147,7 +148,7 @@ void menuChild(){
            case 1  :
               cout << "=== INSERT FIRST ===" << endl;
               cout << "Masukkan paper yang ingin ditambahkan: ";
-              cin << paper;
+              cin >> paper;
 
               p = createElmPaper(paper);
               insertPaperFirst(LP, p);
@@ -156,7 +157,7 @@ void menuChild(){
            case 2  :
               cout << "=== INSERT LAST ===" << endl;
               cout << "Masukkan paper yang ingin ditambahkan: ";
-              cin << paper;
+              cin >> paper;
 
               p = createElmPaper(paper);
               insertPaperLast(LP, p);
@@ -165,7 +166,7 @@ void menuChild(){
            case 3  :
               cout << "=== INSERT AFTER ===" << endl;
               cout << "Masukkan paper yang ingin ditambahkan: ";
-              cin << paper;
+              cin >> paper;
 
               p = createElmPaper(paper);
               prec = findElmPaper(LP, paper);
@@ -191,7 +192,7 @@ void menuChild(){
            case 7:
               cout << "=== CARI PAPER ===" << endl;
               cout << "Nama paper yang ingin dicari: ";
-              cin << paper;
+              cin >> paper;
               fPaper = findElmPaper(LP, paper);
 
               if (fPaper != nullptr) {

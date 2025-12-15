@@ -1,15 +1,16 @@
+//SLL
 #include "Keyword.h"
 #include <iostream>
 #include "Paper.h"
-//SLL
+
 using namespace std;
 
 void createListKeyword(ListKeyword &LK) {
-    K.first = nullptr;
+    LK.first = nullptr;
 }
 
 bool isEmpty(ListKeyword LK) {
-    return (K.first == nullptr);
+    return (LK.first == nullptr);
 }
 
 adrKey createElmKeyword(infotypeKey x) {
@@ -18,51 +19,50 @@ adrKey createElmKeyword(infotypeKey x) {
     p = new elmKeyword;
     p -> info = x;
     p -> next = nullptr;
+    return p;
 }
 
-void deleteKeywordFirst(ListKeyword &LK, adrKey &p) {
+void deleteKeywordFirst(ListKeyword &LK, adrKey &k) {
     if (isEmpty(LK)) {
-        p = nullptr;
         cout << "List Kosong";
     } else if (LK.first -> next == nullptr) {
-        p = LK.first;
+        k = LK.first;
         LK.first = nullptr;
     } else {
-        p = LK.first;
-        LK.first = LK.first -> next;
-        p -> next = nullptr;
+        k = LK.first;
+        LK.first = k -> next;
+        k -> next = nullptr;
     }
 }
 
-void deleteKeywordAfter(ListKeyword &LK, adrKey prec, adrKey &p) {
+void deleteKeywordAfter(ListKeyword &LK, adrKey prec, adrKey &k) {
     if (isEmpty(LK)) {
-        p = nullptr;
         cout << "List Kosong";
     } else if (LK.first -> next = nullptr) {
-        p = LK.first;
+        k = LK.first;
         LK.first = nullptr;
     } else {
-        p = prec -> next;
-        prec -> next = p -> next;
-        p -> next = nullptr;
+        k = prec -> next;
+        prec -> next = k -> next;
+        k -> next = nullptr;
     }
 }
 
-void deleteKeywordLast(ListKeyword &LK, adrKey p) {
+void deleteKeywordLast(ListKeyword &LK, adrKey &k) {
     adrKey q;
 
     if (isEmpty(LK)) {
-        p = nullptr;
+        k = nullptr;
         cout << "List Kosong";
     } else if (LK.first -> next = nullptr) {
-        p = LK.first;
+        k = LK.first;
         LK.first = nullptr;
     } else {
         q = LK.first;
         while (q -> next -> next != nullptr) {
             q = q -> next;
         }
-        p = q -> next;
+        k = q -> next;
         q -> next = nullptr;
     }
 }
@@ -70,7 +70,7 @@ void deleteKeywordLast(ListKeyword &LK, adrKey p) {
 void showKey(ListKeyword LK) {
     adrKey p;
 
-    p = K.first;
+    p = LK.first;
     while (p != nullptr) {
         cout << p->info;
         p = p -> next;
@@ -79,7 +79,7 @@ void showKey(ListKeyword LK) {
 
 adrR createElmR(adrPaper p){
     adrR n;
-    n = createElmR();
+    n = new elmR;
     n->nextR = nullptr;
     n->infoRP = p;
     return n;
@@ -109,17 +109,17 @@ void viewKeywordbyPaper(ListKeyword LK,ListPaper LP, infotypePaper p){  // point
     adrR m;
     adrPaper z;
 
-    n = LK.first
-    z = LP.first
+    n = LK.first;
+    z = LP.first;
     while(n!=nullptr){
         m = n->firstR;
-        cout << "Paper dengan judul " << p->info.title << " memiliki keyword: " << endl;
+        cout << "Paper dengan judul " << p.title << " memiliki keyword: " << endl;
         cout << endl;
         while(m!= nullptr){
             if(z->info.title == p.title){
                 cout << n->info << endl;
             }
-            m = m->next;
+            m = m->nextR;
         }
         n = n->next;
     }
@@ -155,7 +155,7 @@ int countRelationOfPaper(ListKeyword LK, ListPaper LP, infotypePaper x){ // poin
         r = k ->firstR;
         while (r != nullptr) {
             if (r ->infoRP == p) {
-                banyak++
+                banyak++;
             }
             r = r ->nextR;
         }

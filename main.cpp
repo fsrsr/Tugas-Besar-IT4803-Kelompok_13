@@ -23,6 +23,7 @@ int main(){
                     menuUser();
                     break;
            case 3   :
-                    return;
+                    return 0;
 
+    }
 }

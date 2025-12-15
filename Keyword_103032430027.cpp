@@ -70,11 +70,11 @@ void deleteRelation(ListKeyword LK, adrR prec, adrR r){
     adrR m;
     n = LK.first;
     while(n!=nullptr){
-        prec = findElmR(LK, p);
+        prec = findElmR(LK, r->infoRP);
         m = n->firstR;
         while(m != nullptr){
             if(prec == n->firstR){
-                n->firstR = nullptr;)
+                n->firstR = nullptr;
             }else{
                 while(m->nextR != prec){
                     m = m->nextR;
@@ -92,16 +92,16 @@ void viewPaperbyKeyword(ListKeyword LK, infotypeKey k){// Membuat Show data Pape
     adrR m;
     adrPaper p;
 
-    n = LK.first
+    n = LK.first;
     while(n!=nullptr){
         m = n->firstR;
         cout << "Paper dengan Keyword " << k << " yaitu: " << endl;
         cout << endl;
         while(m!= nullptr){
             if(n->info == k){
-                cout << m->infoRP->info.title
+                cout << m->infoRP->info.title;
             }
-            m = m->next;
+            m = m->nextR;
         }
         n = n->next;
     }
@@ -152,7 +152,7 @@ void editRelation(ListKeyword LK, ListPaper LP, adrPaper p, adrKey newK, adrKey 
 
         n = LP.first;
         while(n != p){
-            n = n->next
+            n = n->next;
         }
         if(n == p){
             m = k->firstR;
@@ -166,7 +166,7 @@ void editRelation(ListKeyword LK, ListPaper LP, adrPaper p, adrKey newK, adrKey 
                     cout << "Relasi Berhasil Diubah !" << endl;
                     return;
                 } else{
-                    cout << "Tidak ada keyword yang berelasi dengan paper !"
+                    cout << "Tidak ada keyword yang berelasi dengan paper !" << endl;
                 }
                 m = m->nextR;
             }

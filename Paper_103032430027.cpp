@@ -9,7 +9,7 @@ void createListPaper(ListPaper &LP){
     LP.last = nullptr;
 }
 
-bool isEmpty(ListPaper LP);
+bool isEmpty(ListPaper LP){
     if(LP == nullptr){
         return true;
     }
@@ -23,6 +23,7 @@ adrPaper createElmPaper(infotypePaper x){
     p->info = x;
     p->next = nullptr;
     p->prev = nullptr;
+    return p;
 }
 
 void deletePaperFirst(ListPaper &LP, adrPaper &p){
@@ -34,7 +35,7 @@ void deletePaperFirst(ListPaper &LP, adrPaper &p){
         LP.first = nullptr;
         LP.last = nullptr;
     } else{
-        p = P.first;
+        p = LP.first;
         LP.first = p->next;
         p->next = nullptr;
         LP.first -> prev = nullptr;
