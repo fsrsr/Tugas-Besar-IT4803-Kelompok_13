@@ -38,8 +38,6 @@
 		<Unit filename="Paper.h" />
 		<Unit filename="Paper_103032430018.cpp" />
 		<Unit filename="Paper_103032430027.cpp" />
-		<Unit filename="Relation_103032430018.cpp" />
-		<Unit filename="Relation_103032430027.cpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="main.h" />
 		<Unit filename="main_admin.cpp" />
