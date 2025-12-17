@@ -9,8 +9,8 @@ void createListPaper(ListPaper &LP){
     LP.last = nullptr;
 }
 
-bool isEmpty(ListPaper LP){
-    if(LP == nullptr){
+bool isEmptyPaper(ListPaper LP) {
+    if(LP.first == nullptr){
         return true;
     }
     return false;
@@ -23,7 +23,6 @@ adrPaper createElmPaper(infotypePaper x){
     p->info = x;
     p->next = nullptr;
     p->prev = nullptr;
-    return p;
 }
 
 void deletePaperFirst(ListPaper &LP, adrPaper &p){
@@ -75,16 +74,16 @@ void deletePaperLast(ListPaper &LP, adrPaper &p){
     }
 }
 
-bool findElmPaper(ListPaper LP, infotypePaper x){
+adrPaper findElmPaper(ListPaper LP, string x){
     adrPaper n;
     n = LP.first;
 
     while(n != nullptr){
-        if(n->info.title == x.title || n->info.journal == x.journal || n->info.author == x.author || n->info.date == x.date || n->info.category == x.category){
-            return true;
+        if(n->info.title == x){
+            return n;
         }
         n = n->next;
     }
-    return false;
+    return nullptr;
 }
 

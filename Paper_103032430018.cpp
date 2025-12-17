@@ -43,11 +43,7 @@ void showPaper(ListPaper LP){
 
     p = LP.first;
     while (p != nullptr){
-        cout << "======== Paper yang terdapat =========" << endl;
-        cout << p->info.title << endl;
-        cout << p->info.author << endl;
-        cout << p->info.year << endl;
-        cout << p->info.category << endl;
+        cout << p->info.title << ", " << p ->info.author << ", " << p ->info.year << ", " << p ->info.category << endl;
         p->next;
     }
 }

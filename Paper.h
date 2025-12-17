@@ -38,7 +38,7 @@ bool isEmptyPaper(ListPaper LP);
 void insertPaperFirst(ListPaper &LP, adrPaper p);
 void insertPaperAfter(ListPaper &LP, adrPaper prec, adrPaper p);
 void insertPaperLast(ListPaper &LP, adrPaper p);
-adrPaper findElmPaper(ListPaper LP, infotypePaper x);
+adrPaper findElmPaper(ListPaper LP, string x);
 
 
 #endif // PAPER_H_INCLUDED

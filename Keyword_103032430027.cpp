@@ -1,6 +1,7 @@
 #include "Keyword.h"
 #include "Paper.h"
 #include <iostream>
+
 using namespace std;
 //SLL
 void insertKeywordFirst(ListKeyword &LK, adrKey k){
@@ -68,9 +69,11 @@ adrR findElmR(ListKeyword LK, adrPaper p){
 void deleteRelation(ListKeyword LK, adrR prec, adrR r){
     adrKey n;
     adrR m;
+    adrPaper p;
+
     n = LK.first;
     while(n!=nullptr){
-        prec = findElmR(LK, r->infoRP);
+        prec = findElmR(LK, p);
         m = n->firstR;
         while(m != nullptr){
             if(prec == n->firstR){
@@ -166,7 +169,7 @@ void editRelation(ListKeyword LK, ListPaper LP, adrPaper p, adrKey newK, adrKey 
                     cout << "Relasi Berhasil Diubah !" << endl;
                     return;
                 } else{
-                    cout << "Tidak ada keyword yang berelasi dengan paper !" << endl;
+                    cout << "Tidak ada keyword yang berelasi dengan paper !";
                 }
                 m = m->nextR;
             }

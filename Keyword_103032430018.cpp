@@ -1,8 +1,8 @@
-//SLL
 #include "Keyword.h"
 #include <iostream>
 #include "Paper.h"
-
+#include <string>
+#include "main.h"
 using namespace std;
 
 void createListKeyword(ListKeyword &LK) {
@@ -19,51 +19,51 @@ adrKey createElmKeyword(infotypeKey x) {
     p = new elmKeyword;
     p -> info = x;
     p -> next = nullptr;
-    return p;
 }
 
-void deleteKeywordFirst(ListKeyword &LK, adrKey &k) {
+void deleteKeywordFirst(ListKeyword &LK, adrKey &p) {
+    if (isEmpty(LK)) {
+        p = nullptr;
+        cout << "List Kosong";
+    } else if (LK.first -> next == nullptr) {
+        p = LK.first;
+        LK.first = nullptr;
+    } else {
+        p = LK.first;
+        LK.first = LK.first -> next;
+        p -> next = nullptr;
+    }
+}
+
+void deleteKeywordAfter(ListKeyword &LK, adrKey prec, adrKey &p) {
+    if (isEmpty(LK)) {
+        p = nullptr;
+        cout << "List Kosong";
+    } else if (LK.first -> next = nullptr) {
+        p = LK.first;
+        LK.first = nullptr;
+    } else {
+        p = prec -> next;
+        prec -> next = p -> next;
+        p -> next = nullptr;
+    }
+}
+
+void deleteKeywordLast(ListKeyword &LK, adrKey &k) {
+    adrKey p;
+
     if (isEmpty(LK)) {
         cout << "List Kosong";
     } else if (LK.first -> next == nullptr) {
         k = LK.first;
         LK.first = nullptr;
     } else {
-        k = LK.first;
-        LK.first = k -> next;
-        k -> next = nullptr;
-    }
-}
-
-void deleteKeywordAfter(ListKeyword &LK, adrKey prec, adrKey &k) {
-    if (isEmpty(LK)) {
-        cout << "List Kosong";
-    } else if (LK.first -> next = nullptr) {
-        k = LK.first;
-        LK.first = nullptr;
-    } else {
-        k = prec -> next;
-        prec -> next = k -> next;
-        k -> next = nullptr;
-    }
-}
-
-void deleteKeywordLast(ListKeyword &LK, adrKey &k) {
-    adrKey q;
-
-    if (isEmpty(LK)) {
-        k = nullptr;
-        cout << "List Kosong";
-    } else if (LK.first -> next = nullptr) {
-        k = LK.first;
-        LK.first = nullptr;
-    } else {
-        q = LK.first;
-        while (q -> next -> next != nullptr) {
-            q = q -> next;
+        p = LK.first;
+        while (p -> next -> next != nullptr) {
+            p = p -> next;
         }
-        k = q -> next;
-        q -> next = nullptr;
+        k = p -> next;
+        p -> next = nullptr;
     }
 }
 
@@ -103,7 +103,7 @@ void insertRelation(ListKeyword LK, adrR r, adrPaper p){
     n = n->next;
 }
 
-void viewKeywordbyPaper(ListKeyword LK,ListPaper LP, infotypePaper p){  // point 13
+void viewKeywordbyPaper(ListKeyword LK, ListPaper LP, string p){  // point 13
 
     adrKey n;
     adrR m;
@@ -113,10 +113,10 @@ void viewKeywordbyPaper(ListKeyword LK,ListPaper LP, infotypePaper p){  // point
     z = LP.first;
     while(n!=nullptr){
         m = n->firstR;
-        cout << "Paper dengan judul " << p.title << " memiliki keyword: " << endl;
+        cout << "Paper dengan judul " << p << " memiliki keyword: " << endl;
         cout << endl;
         while(m!= nullptr){
-            if(z->info.title == p.title){
+            if(z->info.title == p){
                 cout << n->info << endl;
             }
             m = m->nextR;
@@ -130,23 +130,26 @@ int countRelationByKeyword(adrKey k){ // Membuat Count Relasi dari setiap elemen
     adrR m;
     int z;
 
+    if (k == nullptr){
+        cout << "ERROR: Keyword tidak memilki relasi!" << endl;
+        cout << endl;
+    }
     z = 0;
     m = k->firstR;
-    while(k != nullptr){
-        if(m != nullptr){
-            z++;
-        }
-        k = k->next;
+    while(m != nullptr){
+        z++;
+        m = m->nextR;
     }
     return z;
 }
 
-int countRelationOfPaper(ListKeyword LK, ListPaper LP, infotypePaper x){ // point 17
+int countRelationOfPaper(ListKeyword LK, ListPaper LP){ // point 17
     adrKey k;
     adrPaper p;
     adrR r;
     bool f;
     int banyak;
+    string x;
 
     k = LK.first;
     banyak = 0;
@@ -161,7 +164,7 @@ int countRelationOfPaper(ListKeyword LK, ListPaper LP, infotypePaper x){ // poin
         }
         k = k ->next;
     }
-    cout << "ERROR: Paper Tidak Ditemukan !" << endl;
+    return banyak;
 }
 
 void showAllKeywordAndPaper(ListKeyword LK, ListPaper LP){
@@ -181,9 +184,9 @@ void showAllKeywordAndPaper(ListKeyword LK, ListPaper LP){
         }
         n = n->next;
     }
-} // Membuat Show all data di List Paper beserta data Paper yang berelasi dengannya
+}
 
-void countNoRelationPaper(ListKeyword LK, ListPaper LP){ // point 18
+int countNoRelationPaper(ListKeyword LK, ListPaper LP){ // point 18
     adrKey k;
     adrPaper p;
     adrR r;

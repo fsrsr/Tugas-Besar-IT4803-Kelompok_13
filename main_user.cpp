@@ -2,15 +2,18 @@
 #include "Paper.h"
 #include "Keyword.h"
 #include <iostream>
+#include "string"
 using namespace std;
 
 void menuUser(){
     int option=-99;
     ListKeyword LK;
     ListPaper LP;
-    infotypeKey K;
-    adrKey k, oldK;
+    adrKey newK, oldK;
     adrPaper p;
+    infotypeKey k;
+    string x;
+    int Cp, CnR;
 
     while (option != 0) {
         system("cls");
@@ -32,12 +35,12 @@ void menuUser(){
               cout << "=== LIHAT PAPER ===" << endl;
               cout << "Paper dengan keyword apa yang ingin dicari? ";
               cin >> k;
-              viewPaperbyKeyword(LK, K);
+              viewPaperbyKeyword(LK, k);
 
               break;
            case 2  :
               cout << "=== LIHAT SEMUA KEYWORD DENGAN PAPER ===" << endl;
-              showAllKeywordAndPaper(LK, k, p); //aneh
+              showAllKeywordAndPaper(LK, LP);
 
               break;
            case 3  :
@@ -48,8 +51,8 @@ void menuUser(){
            case 4  :
               cout << "=== LIHAT KEYWORD ===" << endl;
               cout << "Keyword dengan paper apa yang ingin dicari? ";
-              cin >> p->info.title;
-              viewKeywordbyPaper(LK, k, p); //aneh
+              cin >> x;
+              viewKeywordbyPaper(LK, LP, x);
 
               break;
            case 5  :
@@ -59,18 +62,19 @@ void menuUser(){
               break;
            case 6  :
               cout << "=== HITUNG BANYAK KEYWORD DARI PAPER TERTENTU ===" << endl;
-              Cp = countRelationOfPaper(LK); //aneh
+              Cp = countRelationOfPaper(LK, LP);
               cout << Cp;
 
               break;
            case 7  :
               cout << "=== HITUNG BANYAK PAPER TANPA KEYWORD ===" << endl;
-              countNoRelationPaper(LK);
+              CnR = countNoRelationPaper(LK, LP);
+              cout << CnR;
 
               break;
            case 8  :
               cout << "=== UBAH PAPER ===" << endl;
-              editRelation(LK, LP, p, k, oldK);
+              editRelation(LK, LP, p, newK, oldK);
 
               break;
         }

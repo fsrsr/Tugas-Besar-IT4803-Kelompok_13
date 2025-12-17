@@ -11,8 +11,8 @@ int main(){
             cout << "=================== Mode Apa? =========================" << endl;
             cout << "|| 1. Admin                                          ||" << endl;
             cout << "|| 2. User                                           ||" << endl;
-            cout << "|| 3. Keluar                           ||" << endl;
-            cout << "=========================================" << endl;
+            cout << "|| 3. Keluar                                         ||" << endl;
+            cout << "=======================================================" << endl;
             cout << "Choose your option : ";
             cin >> option;
         switch(option) {
@@ -22,8 +22,8 @@ int main(){
            case 2   :
                     menuUser();
                     break;
-           case 3   :
-                    return 0;
-
+        }
     }
+    return 0;
 }
+
