@@ -185,7 +185,7 @@ void menuParent(ListKeyword &LK, ListPaper &LP){
               break;
            case 6:
               cout << "=== DELETE AFTER ===" << endl;
-              cout << "Masukkan keyword yang akan dicari: ";
+              cout << "Masukkan setelah keyword apa yang akan dihapus?: ";
               cin >> key;
 
               precK = findElmKey(LK, key);
