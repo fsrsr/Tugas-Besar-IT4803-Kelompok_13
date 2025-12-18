@@ -49,7 +49,7 @@ void menuParent(ListKeyword &LK, ListPaper &LP){
 
     while (option != 0) {
         system("cls");
-        cout << "============ Menu Keyword ============ " << endl;
+        cout << "============ Menu Keyword =============" << endl;
         cout << "|| 1. Insert First                   ||" << endl;
         cout << "|| 2. Insert Last                    ||" << endl;
         cout << "|| 3. Insert After                   ||" << endl;
@@ -62,6 +62,7 @@ void menuParent(ListKeyword &LK, ListPaper &LP){
         cout << "=======================================" << endl;
         cout << "Choose your option: ";
         cin >> option;
+        cout << endl;
 
         switch(option) {
            case 1  :
@@ -248,6 +249,7 @@ void menuChild(ListPaper &LP){
         cout << "=====================================" << endl;
         cout << "Choose your option: ";
         cin >> option;
+        cout << endl;
 
         switch(option) {
            case 1  :
@@ -395,6 +397,7 @@ void menuRelation(ListKeyword &LK, ListPaper &LP){
         cout << "=======================================" << endl;
         cout << "Choose your option: ";
         cin >> option;
+        cout << endl;
 
         switch(option) {
             case 1: {
