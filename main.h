@@ -5,7 +5,8 @@
 #include "Paper.h"
 using namespace std;
 
-void menuAdmin();
-void menuUser();
+void menuAdmin(ListKeyword &LK, ListPaper &LP);
+void menuUser(ListKeyword &LK, ListPaper &LP);
+void menuRelation(ListKeyword &LK, ListPaper &LP);
 
 #endif // MAIN_H_INCLUDED

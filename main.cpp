@@ -4,6 +4,12 @@ using namespace std;
 
 int main(){
     int option = -99;
+    ListKeyword LK;
+    ListPaper LP;
+
+    createListKeyword(LK);
+    createListPaper(LP);
+
     while (option != 0) {
             system("cls");
             cout << "========= SELAMAT DATANG DI PENCARIAN PAPER ===========" << endl;
@@ -17,10 +23,10 @@ int main(){
             cin >> option;
         switch(option) {
            case 1   :
-                    menuAdmin();
+                    menuAdmin(LK, LP);
                     break;
            case 2   :
-                    menuUser();
+                    menuUser(LK, LP);
                     break;
         }
     }

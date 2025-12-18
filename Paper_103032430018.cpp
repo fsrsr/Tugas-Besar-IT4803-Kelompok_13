@@ -16,10 +16,14 @@ void insertPaperFirst(ListPaper &LP, adrPaper p){
 }
 
 void insertPaperAfter(ListPaper &LP, adrPaper prec, adrPaper p){
-    if (isEmptyPaper(LP)){
-        LP.first = p;
-        LP.last = p;
-    } else{
+    if (prec == nullptr) {
+        cout << "Prec tidak valid" << endl;
+        return;
+    }
+
+    if (prec == LP.last) {
+        insertPaperLast(LP, p);
+    } else {
         p->prev = prec;
         p->next = prec->next;
         prec->next->prev = p;
@@ -42,8 +46,13 @@ void showPaper(ListPaper LP){
     adrPaper p;
 
     p = LP.first;
+    if (p == nullptr) {
+        cout << "List paper kosong" << endl;
+        return;
+    }
+
     while (p != nullptr){
-        cout << p->info.title << ", " << p ->info.author << ", " << p ->info.year << ", " << p ->info.category << endl;
-        p->next;
+        cout << "Judul: " << p->info.title << ", Penulis: " << p->info.author << ", Tahun: " << p->info.year << ", Kategori: " << p->info.category << endl;
+        p = p->next;
     }
 }

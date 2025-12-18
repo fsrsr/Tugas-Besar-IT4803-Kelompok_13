@@ -23,12 +23,13 @@ adrPaper createElmPaper(infotypePaper x){
     p->info = x;
     p->next = nullptr;
     p->prev = nullptr;
+    return p;
 }
 
 void deletePaperFirst(ListPaper &LP, adrPaper &p){
     if (isEmptyPaper(LP)){
         p = nullptr;
-        cout << "List kosong";
+        cout << "List kosong" << endl;
     } else if (LP.first == LP.last){
         p = LP.first;
         LP.first = nullptr;
@@ -37,18 +38,22 @@ void deletePaperFirst(ListPaper &LP, adrPaper &p){
         p = LP.first;
         LP.first = p->next;
         p->next = nullptr;
-        LP.first -> prev = nullptr;
+        LP.first->prev = nullptr;
     }
 }
 
 void deletePaperAfter(ListPaper &LP, adrPaper prec, adrPaper &p){
     if (isEmptyPaper(LP)){
         p = nullptr;
-        cout << "List kosong";
-    } else if (LP.first == LP.last){
-        p = LP.first;
-        LP.first = nullptr;
-        LP.last = nullptr;
+        cout << "List kosong" << endl;
+    } else if (prec == nullptr || prec->next == nullptr) {
+        p = nullptr;
+        cout << "Tidak ada elemen setelah prec" << endl;
+    } else if (prec->next == LP.last) {
+        p = LP.last;
+        LP.last = prec;
+        LP.last->next = nullptr;
+        p->prev = nullptr;
     } else{
         p = prec->next;
         prec->next = p->next;
@@ -61,7 +66,7 @@ void deletePaperAfter(ListPaper &LP, adrPaper prec, adrPaper &p){
 void deletePaperLast(ListPaper &LP, adrPaper &p){
     if (isEmptyPaper(LP)){
         p = nullptr;
-        cout << "List kosong";
+        cout << "List kosong" << endl;
     } else if (LP.first == LP.last){
         p = LP.first;
         LP.first = nullptr;
@@ -70,7 +75,7 @@ void deletePaperLast(ListPaper &LP, adrPaper &p){
         p = LP.last;
         LP.last = p->prev;
         p->prev = nullptr;
-        LP.last -> next = nullptr;
+        LP.last->next = nullptr;
     }
 }
 
@@ -86,4 +91,3 @@ adrPaper findElmPaper(ListPaper LP, string x){
     }
     return nullptr;
 }
-

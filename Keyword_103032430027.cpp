@@ -15,7 +15,7 @@ void insertKeywordFirst(ListKeyword &LK, adrKey k){
 
 void insertKeywordAfter(ListKeyword &LK, adrKey prec, adrKey k){
     if(prec == nullptr){
-        cout << "Prec Tidak Ditemukan!";
+        cout << "Prec Tidak Ditemukan!" << endl;
     }else{
         k->next = prec->next;
         prec->next = k;
@@ -66,49 +66,73 @@ adrR findElmR(ListKeyword LK, adrPaper p){
     return nullptr;
 }
 
-void deleteRelation(ListKeyword LK, adrR prec, adrR r){
+void deleteRelation(ListKeyword LK, adrR r){
     adrKey n;
-    adrR m;
-    adrPaper p;
+    adrR m, prec;
+    bool found;
 
-    n = LK.first;
-    while(n!=nullptr){
-        prec = findElmR(LK, p);
-        m = n->firstR;
-        while(m != nullptr){
-            if(prec == n->firstR){
-                n->firstR = nullptr;
-            }else{
-                while(m->nextR != prec){
-                    m = m->nextR;
-                }
-                r = prec->nextR;
-                prec->nextR = r->nextR;
-                r->nextR = nullptr;
-            }
-        }
+    found = false;
+
+    if (r == nullptr) {
+        cout << "Error: Relasi tidak valid!" << endl;
+        return;
     }
-}
-
-void viewPaperbyKeyword(ListKeyword LK, infotypeKey k){// Membuat Show data Paper yang berelasi dengan Keyword tertentu
-    adrKey n;
-    adrR m;
-    adrPaper p;
 
     n = LK.first;
-    while(n!=nullptr){
+    while(n != nullptr && !found){
         m = n->firstR;
-        cout << "Paper dengan Keyword " << k << " yaitu: " << endl;
-        cout << endl;
-        while(m!= nullptr){
-            if(n->info == k){
-                cout << m->infoRP->info.title;
+        prec = nullptr;
+
+        while(m != nullptr){
+            if(m == r){
+                found = true;
+
+                if(prec == nullptr){
+                    n->firstR = m->nextR;
+                } else {
+                    prec->nextR = m->nextR;
+                }
+                m->nextR = nullptr;
+                delete m;
+
+                cout << "Relasi berhasil dihapus!" << endl;
+                return;
             }
+            prec = m;
             m = m->nextR;
         }
         n = n->next;
     }
-    cout << "ERROR: Paper Tidak Ditemukan" << endl;
+    if (!found){
+        cout << "Error: Relasi tidak ditemukan!" << endl;
+    }
+}
+
+void viewPaperbyKeyword(ListKeyword LK, infotypeKey k){
+    adrKey n;
+    adrR m;
+    bool found = false;
+
+    n = findElmKey(LK, k);
+
+    if (n == nullptr) {
+        cout << "ERROR: Keyword tidak ditemukan" << endl;
+        return;
+    }
+
+    cout << "Paper dengan Keyword \"" << k << "\" yaitu: " << endl;
+    cout << endl;
+
+    m = n->firstR;
+    while(m != nullptr){
+        cout << "- " << m->infoRP->info.title << endl;
+        found = true;
+        m = m->nextR;
+    }
+
+    if (!found) {
+        cout << "Tidak ada paper dengan keyword ini" << endl;
+    }
 }
 
 
@@ -118,6 +142,12 @@ void countRelationOfKeyword(ListKeyword LK){
     adrKey k;
 
     k = LK.first;
+
+    if (k == nullptr) {
+        cout << "List keyword kosong" << endl;
+        return;
+    }
+
     while(k != nullptr){
         hasil = 0;
         r = k->firstR;
@@ -125,79 +155,107 @@ void countRelationOfKeyword(ListKeyword LK){
             hasil++;
             r = r->nextR;
         }
-        cout << "Keyword: " << k->info << "memiliki relasi sebanyak: " << hasil << endl;
+        cout << "Keyword: " << k->info << " memiliki relasi sebanyak: " << hasil << endl;
+        k = k->next;
     }
-    k = k->next;
 }
 
 void editRelation(ListKeyword LK, ListPaper LP, adrPaper p, adrKey newK, adrKey oldK){
-    adrPaper n;
-    adrR m,z;
-    adrKey k;
+    adrR m, newR;
+    adrR prec;
+    bool found;
 
     if(LK.first == nullptr){
         cout << "Error: List Keyword Kosong !" << endl;
         return;
-    } else {
+    }
+
+    if(LP.first == nullptr){
         cout << "Error: List Paper Kosong !" << endl;
         return;
     }
 
-    while(p != nullptr){
-        k = LK.first;
-        while(k != oldK){
-            k = k->next;
-        }
-        if(k != oldK){
-            cout << "Error: Keyword tersebut tidak ditemukan" << endl;
-            return;
-        }
-
-        n = LP.first;
-        while(n != p){
-            n = n->next;
-        }
-        if(n == p){
-            m = k->firstR;
-            while(m != nullptr){
-                if(m->infoRP == p){
-                    deleteRelation(LK, m, z);
-                    while(k != newK){
-                        k = k->next;
-                    }
-                    insertRelation(LK, m, n);
-                    cout << "Relasi Berhasil Diubah !" << endl;
-                    return;
-                } else{
-                    cout << "Tidak ada keyword yang berelasi dengan paper !";
-                }
-                m = m->nextR;
-            }
-
-        }else {
-            cout << "Erorr: Paper tidak ditemukan pada List Paper!" << endl;
-            return;
-        }
+    if (p == nullptr || oldK == nullptr || newK == nullptr) {
+        cout << "Error: Parameter tidak valid!" << endl;
+        return;
     }
+
+    m = oldK->firstR;
+    prec = nullptr;
+    found = false;
+
+    while(m != nullptr){
+        if(m->infoRP == p){
+            found = true;
+            break;
+        }
+        prec = m;
+        m = m->nextR;
+    }
+
+    if (!found) {
+        cout << "Error: Relasi tidak ditemukan!" << endl;
+        return;
+    }
+
+
+    if (prec == nullptr) {
+        oldK->firstR = m->nextR;
+    } else {
+        prec->nextR = m->nextR;
+    }
+
+    m->nextR = nullptr;
+    if (newK->firstR == nullptr) {
+        newK->firstR = m;
+    } else {
+        adrR temp = newK->firstR;
+        while (temp->nextR != nullptr) {
+            temp = temp->nextR;
+        }
+        temp->nextR = m;
+    }
+
+    cout << "Relasi Berhasil Diubah !" << endl;
 }
 
 void showAllPaperAndKeyword(ListKeyword LK, ListPaper LP){
     adrKey k;
     adrPaper p;
     adrR r;
+    bool hasKeyword;
 
-    k = LK.first;
-    while(k != nullptr){
-        p = LP.first;
-        while(p != nullptr){
-            cout << "Paper: " << p->info.title << endl;
+    p = LP.first;
+
+    if (p == nullptr) {
+        cout << "Tidak ada paper" << endl;
+        return;
+    }
+
+    while(p != nullptr){
+        cout << "\n========================================" << endl;
+        cout << "Paper: " << p->info.title << endl;
+        cout << "========================================" << endl;
+
+        hasKeyword = false;
+        k = LK.first;
+
+        while(k != nullptr){
             r = k->firstR;
             while(r != nullptr){
                 if(r->infoRP == p){
-                    cout << "Memiliki Keyword: " << k->info << endl;
+                    cout << "  Keyword: " << k->info << endl;
+                    hasKeyword = true;
                 }
                 r = r->nextR;
             }
+            k = k->next;
         }
+
+        if (!hasKeyword) {
+            cout << "  (Tidak ada keyword)" << endl;
+        }
+
+        p = p->next;
     }
 }

@@ -52,9 +52,11 @@ void viewPaperbyKeyword(ListKeyword LK, infotypeKey k); // point 12 // done
 void countRelationOfKeyword(ListKeyword LK); // point 16 // done
 void editRelation(ListKeyword LK, ListPaper LP, adrPaper p, adrKey newK, adrKey oldK); // point 19 // done
 void showAllPaperAndKeyword(ListKeyword LK, ListPaper LP); // point 14
+adrR findElmR(ListKeyword LK, adrPaper p);
 
 //103032430018 (Relasi) point 3 & 9 & 13 & 15 & 17 & 18
-void insertRelation(ListKeyword LK, adrR r, adrPaper p); //insert last done
+void insertRelation(adrKey k, adrR r); //insert last done
+void connect(adrKey k, adrPaper p);
 void viewKeywordbyPaper(ListKeyword LK, ListPaper LP, string p); // point 15
 int countRelationOfPaper(ListKeyword LK, ListPaper LP); // point 17
 void showAllKeywordAndPaper(ListKeyword LK, ListPaper LP); // point 13
